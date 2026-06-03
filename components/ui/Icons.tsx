@@ -139,6 +139,87 @@ export const ROW_ICONS = {
   euro: IconEuro,
 } as const;
 
+/* ---- Plan category icons (20px line) ---- */
+const sm = (p: IconProps) => ({
+  width: 20,
+  height: 20,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.6,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+  ...p,
+});
+
+const IconInstagram = (p: IconProps) => (
+  <svg {...sm(p)} aria-hidden>
+    <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17" cy="7" r="0.6" fill="currentColor" stroke="none" />
+  </svg>
+);
+const IconMail = (p: IconProps) => (
+  <svg {...sm(p)} aria-hidden>
+    <rect x="3" y="5" width="18" height="14" rx="2" />
+    <path d="M4 7l8 6 8-6" />
+  </svg>
+);
+const IconSend = (p: IconProps) => (
+  <svg {...sm(p)} aria-hidden>
+    <path d="M21 3L10 14M21 3l-7 18-4-7-7-4 18-7z" />
+  </svg>
+);
+const IconImage = (p: IconProps) => (
+  <svg {...sm(p)} aria-hidden>
+    <rect x="3" y="4" width="18" height="16" rx="2" />
+    <circle cx="9" cy="9.5" r="1.6" />
+    <path d="M4 18l5-5 4 4 3-3 4 4" />
+  </svg>
+);
+const IconPlay = (p: IconProps) => (
+  <svg {...sm(p)} aria-hidden>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M10 8.5l6 3.5-6 3.5z" />
+  </svg>
+);
+const IconGlobe = (p: IconProps) => (
+  <svg {...sm(p)} aria-hidden>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" />
+  </svg>
+);
+const IconTargetSm = (p: IconProps) => (
+  <svg {...sm(p)} aria-hidden>
+    <circle cx="12" cy="12" r="8" />
+    <circle cx="12" cy="12" r="3.5" />
+  </svg>
+);
+const IconChartSm = (p: IconProps) => (
+  <svg {...sm(p)} aria-hidden>
+    <path d="M4 20V4M4 20h16M8 16l3-4 3 2 4-6" />
+  </svg>
+);
+const IconPeopleSm = (p: IconProps) => (
+  <svg {...sm(p)} aria-hidden>
+    <circle cx="9" cy="8" r="3" />
+    <circle cx="17" cy="9" r="2.4" />
+    <path d="M3 19c0-3 2.7-5 6-5s6 2 6 5M15.5 13.5c2.4.2 4.5 2 4.5 4.5" />
+  </svg>
+);
+
+export const PLAN_ICONS = {
+  social: IconInstagram,
+  email: IconMail,
+  outbound: IconSend,
+  content: IconImage,
+  video: IconPlay,
+  web: IconGlobe,
+  ads: IconTargetSm,
+  strategy: IconChartSm,
+  team: IconPeopleSm,
+} as const;
+
 /* ---- Check / cross for comparison table ---- */
 export const IconCheck = (p: IconProps) => (
   <svg {...rb({ size: 22, ...p })} aria-hidden>
