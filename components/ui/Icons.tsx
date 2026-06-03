@@ -74,6 +74,12 @@ export const IconBars = (p: IconProps) => (
   </svg>
 );
 
+export const IconOutbound = (p: IconProps) => (
+  <svg {...base(p)} aria-hidden>
+    <path d="M40 8L18 30M40 8l-8 32-7-13-13-7 28-12z" />
+  </svg>
+);
+
 export const BENTO_ICONS = {
   asterisk: IconAsterisk,
   circles: IconCircles,
@@ -82,6 +88,7 @@ export const BENTO_ICONS = {
   pyramid: IconPyramid,
   square: IconSquare,
   rings: IconRings,
+  outbound: IconOutbound,
   bars: IconBars,
 } as const;
 

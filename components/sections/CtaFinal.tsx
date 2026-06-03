@@ -109,9 +109,10 @@ export function CtaFinal() {
         .cta-error { color: var(--error); }
         .cta-success { color: var(--green-deep); }
         .cta-curve {
-          position: absolute; left: 50%; transform: translateX(-50%); bottom: calc(-1 * var(--section-py));
-          width: min(900px, 90%); height: 200px; pointer-events: none;
-          background: radial-gradient(120% 80% at 50% 0%, color-mix(in srgb, var(--green) 18%, transparent), transparent 70%);
+          position: absolute; left: 50%; transform: translateX(-50%);
+          bottom: calc(-0.5 * var(--section-py));
+          width: min(1100px, 100%); height: 320px; pointer-events: none; z-index: -1;
+          background: radial-gradient(60% 100% at 50% 100%, color-mix(in srgb, var(--green) 10%, transparent), transparent 68%);
         }
         @media (max-width: 520px) {
           .cta-row { flex-direction: column; }

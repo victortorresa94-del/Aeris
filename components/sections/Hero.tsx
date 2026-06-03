@@ -73,7 +73,7 @@ export function Hero() {
               height={1100}
               priority
               sizes="(max-width: 900px) 100vw, 45vw"
-              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "left center" }}
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }}
             />
           </div>
           <div className="hero-fade" />
