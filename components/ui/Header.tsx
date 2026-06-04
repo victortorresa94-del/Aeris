@@ -39,61 +39,64 @@ export function Header() {
   const isActive = (href: string) => pathname === href || (href !== "/" && pathname.startsWith(href));
 
   return (
-    <header
-      style={{
-        position: "fixed",
-        insetInline: 0,
-        top: 0,
-        zIndex: 100,
-        background: scrolled || menuOpen ? "color-mix(in srgb, var(--cream) 82%, transparent)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: `1px solid ${scrolled ? "var(--hairline)" : "transparent"}`,
-        transition: "background var(--dur) var(--ease), border-color var(--dur) var(--ease)",
-      }}
-    >
-      <div
-        className="container"
-        style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}
+    <>
+      <header
+        style={{
+          position: "fixed",
+          insetInline: 0,
+          top: 0,
+          zIndex: 100,
+          background: menuOpen
+            ? "var(--cream)"
+            : scrolled
+              ? "color-mix(in srgb, var(--cream) 82%, transparent)"
+              : "transparent",
+          // NOTE: backdrop-filter must be off while the menu is open, or it becomes the
+          // containing block for the fixed overlay and breaks it.
+          backdropFilter: scrolled && !menuOpen ? "blur(12px)" : "none",
+          WebkitBackdropFilter: scrolled && !menuOpen ? "blur(12px)" : "none",
+          borderBottom: `1px solid ${scrolled || menuOpen ? "var(--hairline)" : "transparent"}`,
+          transition: "background var(--dur) var(--ease), border-color var(--dur) var(--ease)",
+        }}
       >
-        <Link href="/" aria-label={`${site.name} — inicio`} style={{ fontWeight: 800, letterSpacing: "0.18em", fontSize: "1.05rem", zIndex: 2 }}>
-          {site.name}
-        </Link>
-
-        <nav aria-label="Principal" style={{ display: "flex", alignItems: "center", gap: "clamp(16px, 3vw, 40px)" }}>
-          <ul className="header-nav" style={{ display: "flex", gap: "clamp(16px, 2.5vw, 36px)" }}>
-            {nav.map((item) => (
-              <li key={item.href}>
-                <Link className={`nav-link ${isActive(item.href) ? "is-active" : ""}`} href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <Link className="btn btn-outline header-cta" href="/contacto" style={{ padding: "10px 18px" }}>
-            <span>Hablar con nosotros</span>
-            <span className="arrow" aria-hidden>↗</span>
+        <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
+          <Link href="/" aria-label={`${site.name} — inicio`} style={{ fontWeight: 800, letterSpacing: "0.18em", fontSize: "1.05rem", zIndex: 2 }}>
+            {site.name}
           </Link>
 
-          {/* Mobile hamburger */}
-          <button
-            type="button"
-            className="header-burger"
-            aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((v) => !v)}
-          >
-            <span className={`burger ${menuOpen ? "open" : ""}`} aria-hidden>
-              <i /><i /><i />
-            </span>
-          </button>
-        </nav>
-      </div>
+          <nav aria-label="Principal" style={{ display: "flex", alignItems: "center", gap: "clamp(16px, 3vw, 40px)" }}>
+            <ul className="header-nav" style={{ display: "flex", gap: "clamp(16px, 2.5vw, 36px)" }}>
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <Link className={`nav-link ${isActive(item.href) ? "is-active" : ""}`} href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link className="btn btn-outline header-cta" href="/contacto" style={{ padding: "10px 18px" }}>
+              <span>Hablar con nosotros</span>
+              <span className="arrow" aria-hidden>↗</span>
+            </Link>
 
-      {/* Scroll progress bar */}
-      <div aria-hidden style={{ position: "absolute", left: 0, bottom: -1, height: 2, width: `${progress * 100}%`, background: "var(--green-deep)", transition: "width 80ms linear" }} />
+            <button
+              type="button"
+              className="header-burger"
+              aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((v) => !v)}
+            >
+              <span className={`burger ${menuOpen ? "open" : ""}`} aria-hidden>
+                <i /><i /><i />
+              </span>
+            </button>
+          </nav>
+        </div>
 
-      {/* Fullscreen mobile overlay */}
+        <div aria-hidden style={{ position: "absolute", left: 0, bottom: -1, height: 2, width: `${progress * 100}%`, background: "var(--green-deep)", transition: "width 80ms linear" }} />
+      </header>
+
+      {/* Fullscreen mobile overlay — OUTSIDE the header so it isn't trapped by backdrop-filter */}
       <div className={`mobile-overlay ${menuOpen ? "open" : ""}`} role="dialog" aria-modal="true" aria-label="Menú" hidden={!menuOpen}>
         <ul>
           {nav.map((item) => (
@@ -121,9 +124,10 @@ export function Header() {
         .burger.open i:nth-child(2) { opacity: 0; }
         .burger.open i:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
         .mobile-overlay {
-          position: fixed; inset: 72px 0 0 0; background: var(--cream);
+          position: fixed; inset: 72px 0 0 0; z-index: 99; background: var(--cream);
           padding: clamp(24px, 8vw, 48px) var(--gutter) 48px; display: flex; flex-direction: column;
-          opacity: 0; pointer-events: none; transform: translateY(-8px); transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+          opacity: 0; pointer-events: none; transform: translateY(-8px);
+          transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
         }
         .mobile-overlay.open { opacity: 1; pointer-events: auto; transform: none; }
         .mobile-overlay ul { display: flex; flex-direction: column; gap: 4px; }
@@ -140,6 +144,6 @@ export function Header() {
           .header-burger { display: inline-flex; }
         }
       `}</style>
-    </header>
+    </>
   );
 }
