@@ -41,7 +41,7 @@ export function Equipo() {
                     width={880}
                     height={1100}
                     loading="lazy"
-                    sizes="(max-width: 700px) 90vw, 40vw"
+                    sizes="170px"
                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
                   />
                 ) : (
@@ -49,23 +49,25 @@ export function Equipo() {
                 )}
                 <span className="team-dot" aria-hidden />
               </div>
-              <h3 className="team-name">{m.name}</h3>
-              <p className="label-mono" style={{ color: "var(--green-deep)", marginTop: 8 }}>
-                {m.role}
-              </p>
-              <p style={{ color: "var(--ink-soft)", marginTop: 16, maxWidth: "42ch" }}>{m.bio}</p>
-              <ul className="team-links">
-                {m.links.map((l) => (
-                  <li key={l.label}>
-                    <a href={l.href} target="_blank" rel="noopener noreferrer" className="team-link">
-                      {l.label}
-                      <span className="arrow" aria-hidden>
-                        ↗
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              <div className="team-info">
+                <h3 className="team-name">{m.name}</h3>
+                <p className="label-mono" style={{ color: "var(--green-deep)", marginTop: 6 }}>
+                  {m.role}
+                </p>
+                <p className="team-bio">{m.bio}</p>
+                <ul className="team-links">
+                  {m.links.map((l) => (
+                    <li key={l.label}>
+                      <a href={l.href} target="_blank" rel="noopener noreferrer" className="team-link">
+                        {l.label}
+                        <span className="arrow" aria-hidden>
+                          ↗
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </Reveal>
           ))}
         </div>
@@ -79,20 +81,23 @@ export function Equipo() {
       </div>
 
       <style>{`
-        .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 64px); margin-top: clamp(40px, 6vw, 64px); }
-        .team-member { border-top: 1px solid var(--hairline); padding-top: 28px; }
+        .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); margin-top: clamp(40px, 6vw, 64px); }
+        .team-member { border-top: 1px solid var(--hairline); padding-top: 28px; display: flex; gap: clamp(16px, 2vw, 24px); align-items: flex-start; }
         .team-photo {
-          position: relative; aspect-ratio: 4 / 5; margin-bottom: 24px; overflow: hidden;
+          position: relative; width: clamp(120px, 15vw, 168px); flex: none;
+          aspect-ratio: 4 / 5; overflow: hidden;
           background: var(--cream-soft); border: 1px solid var(--hairline);
           display: flex; align-items: center; justify-content: center;
         }
+        .team-info { flex: 1; min-width: 0; }
         .team-monogram {
-          font-family: var(--font-mono); font-weight: 700; font-size: clamp(3rem, 8vw, 5rem);
+          font-family: var(--font-mono); font-weight: 700; font-size: clamp(2rem, 5vw, 3rem);
           color: var(--hairline); letter-spacing: 0.05em;
         }
-        .team-dot { position: absolute; top: 14px; right: 14px; width: 8px; height: 8px; border-radius: 999px; background: var(--green); }
+        .team-dot { position: absolute; top: 10px; right: 10px; width: 7px; height: 7px; border-radius: 999px; background: var(--green); }
         .team-name { font-size: var(--text-h3); font-weight: 800; letter-spacing: -0.02em; }
-        .team-links { display: flex; gap: 20px; margin-top: 20px; }
+        .team-bio { color: var(--ink-soft); margin-top: 12px; font-size: 0.95rem; line-height: 1.45; }
+        .team-links { display: flex; gap: 18px; margin-top: 16px; }
         .team-link { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.06em; color: var(--green-deep); }
         .team-link .arrow { transition: transform var(--dur) var(--ease); }
         .team-link:hover .arrow { transform: translate(2px, -2px); }

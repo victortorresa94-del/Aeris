@@ -32,6 +32,7 @@ export function Planes() {
                     <span className="plan-period">{card.period}</span>
                   </span>
                 </p>
+                {card.setup && <p className="plan-setup">+ {card.setup} · pago único</p>}
 
                 {card.inherits && (
                   <p className="plan-inherits">
@@ -100,6 +101,7 @@ export function Planes() {
         .plan-price-prefix { font-family: var(--font-mono); font-size: var(--text-micro); text-transform: uppercase; letter-spacing: 0.1em; color: var(--mute); }
         .plan-price-amount { font-size: clamp(1.75rem, 2.6vw, 2.4rem); font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; line-height: 1.05; }
         .plan-period { font-family: var(--font-mono); font-size: var(--text-label); color: var(--mute); font-weight: 400; margin-left: 6px; }
+        .plan-setup { margin-top: 8px; font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.04em; color: var(--green-deep); }
 
         .plan-inherits { margin-top: 22px; font-size: 0.85rem; color: var(--ink-soft); padding-bottom: 16px; border-bottom: 1px solid var(--hairline); }
         .plan-inherits strong { font-weight: 700; color: var(--ink); }
