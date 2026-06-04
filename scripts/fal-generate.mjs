@@ -5,12 +5,16 @@
  * Requiere: npm i (sharp ya está en devDependencies).
  */
 import sharp from "sharp";
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync } from "node:fs";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const KEY = process.env.FAL_KEY;
-if (!KEY) { console.error("no FAL_KEY"); process.exit(1); }
-const OUT = "/home/user/Aeris/public/img";
-const TMP = "/tmp/falgen";
+if (!KEY) { console.error("Falta FAL_KEY. Uso: FAL_KEY='tu-key' node scripts/fal-generate.mjs"); process.exit(1); }
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const OUT = resolve(ROOT, "public/img");
+const TMP = resolve(ROOT, ".falgen-preview");
+mkdirSync(OUT, { recursive: true });
 mkdirSync(TMP, { recursive: true });
 
 const STYLE = "warm cream and off-white tones, pale concrete, soft natural daylight, minimalist editorial fine-art architectural photography, photorealistic, high detail, no people, no text, no words";
