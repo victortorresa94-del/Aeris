@@ -294,9 +294,8 @@ export const equipo = {
   members: [
     {
       name: "Víctor Torres",
-      role: "FOUNDER & CEO",
-      // Drop a headshot at public/img/team-victor.{webp,avif} and set photo: "/img/team-victor.webp"
-      photo: undefined as string | undefined,
+      role: "FOUNDER",
+      photo: "/img/team-victor.webp" as string | undefined,
       bio: "Fundador de Aether Labs (Barcelona). Experto en marketing y en aplicar IA al marketing, sobre todo para crecimiento. Define la estrategia y la dirección de cada cuenta.",
       links: [
         { label: "aetherlabs.es", href: "https://www.aetherlabs.es" },
@@ -305,8 +304,8 @@ export const equipo = {
     },
     {
       name: "Dustin Gallegos",
-      role: "CO-FOUNDER & STRATEGY",
-      photo: undefined as string | undefined,
+      role: "FOUNDER",
+      photo: "/img/team-dustin.webp" as string | undefined,
       bio: "Ex-Microsoft (Cloud Solutions Architect). Fundador y CEO de KMeleon (Miami), pionero en IA generativa para empresas. Aporta la visión técnica y de negocio.",
       links: [
         { label: "kmeleon.tech", href: "https://www.kmeleon.tech" },

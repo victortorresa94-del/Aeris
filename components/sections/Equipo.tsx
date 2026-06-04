@@ -38,8 +38,8 @@ export function Equipo() {
                   <Image
                     src={m.photo}
                     alt={`${m.name}, ${m.role}`}
-                    width={480}
-                    height={480}
+                    width={880}
+                    height={1100}
                     loading="lazy"
                     sizes="(max-width: 700px) 90vw, 40vw"
                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
@@ -82,7 +82,7 @@ export function Equipo() {
         .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 64px); margin-top: clamp(40px, 6vw, 64px); }
         .team-member { border-top: 1px solid var(--hairline); padding-top: 28px; }
         .team-photo {
-          position: relative; aspect-ratio: 4 / 3; margin-bottom: 24px; overflow: hidden;
+          position: relative; aspect-ratio: 4 / 5; margin-bottom: 24px; overflow: hidden;
           background: var(--cream-soft); border: 1px solid var(--hairline);
           display: flex; align-items: center; justify-content: center;
         }
