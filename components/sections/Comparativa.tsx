@@ -85,14 +85,27 @@ export function Comparativa() {
         .cmp-yes { color: var(--green-deep); display: inline-flex; }
         .cmp-no { color: var(--mute); display: inline-flex; }
 
-        @media (max-width: 720px) {
+        @media (max-width: 760px) {
           .cmp, .cmp thead, .cmp tbody, .cmp tr, .cmp th, .cmp td { display: block; }
           .cmp thead { display: none; }
-          .cmp tbody tr { padding: 20px 0; }
-          .cmp-feature { padding: 0 0 12px; }
+          .cmp { margin-top: clamp(28px, 5vw, 40px); }
+          .cmp tbody tr {
+            border: 1px solid var(--hairline); border-radius: 2px;
+            padding: 16px; margin-bottom: 12px; background: var(--cream-soft);
+          }
+          .cmp th, .cmp td { padding: 0; }
+          .cmp-feature { padding: 0 0 12px; margin-bottom: 10px; border-bottom: 1px solid var(--hairline); }
           .cmp-feature-inner { max-width: none; }
-          .cmp-val { display: flex; align-items: center; justify-content: space-between; text-align: left; padding: 8px 0; background: none !important; }
-          .cmp-val::before { content: attr(data-col); font-family: var(--font-mono); font-size: var(--text-micro); color: var(--mute); text-transform: uppercase; letter-spacing: 0.08em; }
+          .cmp-val {
+            display: flex; align-items: center; justify-content: space-between; text-align: left;
+            padding: 7px 10px; border-radius: 2px; margin-top: 2px;
+          }
+          .cmp-val::before {
+            content: attr(data-col); font-family: var(--font-mono); font-size: var(--text-micro);
+            color: var(--mute); text-transform: uppercase; letter-spacing: 0.06em;
+          }
+          .cmp-val.cmp-aeris { background: color-mix(in srgb, var(--green-surface) 75%, transparent); }
+          .cmp-val.cmp-aeris::before { color: var(--green-deep); font-weight: 700; }
         }
       `}</style>
     </section>

@@ -47,36 +47,39 @@ export function Propuesta() {
       </div>
 
       <style>{`
+        /* Banner compacto Estratega · IA · Resultado */
         .prop-flow {
           display: grid;
           grid-template-columns: 1fr auto 1fr auto 1fr;
-          align-items: stretch;
-          gap: clamp(12px, 2vw, 28px);
-          margin-top: clamp(48px, 7vw, 88px);
+          align-items: center;
+          gap: clamp(12px, 2vw, 32px);
+          margin-top: clamp(36px, 5vw, 56px);
           text-align: left;
+          border: 1px solid var(--hairline);
+          border-radius: 2px;
+          background: var(--cream-soft);
+          padding: clamp(20px, 3vw, 36px);
         }
-        .prop-card {
-          border-top: 1px solid var(--hairline);
-          padding-top: 24px;
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-        }
+        .prop-card { display: flex; flex-direction: column; gap: 8px; }
+        .prop-card .t-h3 { font-size: clamp(1.15rem, 1.8vw, 1.5rem); }
+        .prop-card > p:last-child { font-size: 0.9rem; line-height: 1.4; }
         .prop-visual {
-          min-height: 120px;
+          min-height: 84px; max-height: 104px;
           display: flex;
           align-items: center;
-          margin-block: 8px;
+          margin-block: 4px;
         }
+        .prop-visual svg { max-height: 104px; }
         .prop-connector {
           align-self: center;
           font-family: var(--font-mono);
-          font-size: clamp(1.4rem, 3vw, 2.2rem);
+          font-size: clamp(1.2rem, 2.4vw, 1.8rem);
           color: var(--mute);
         }
         @media (max-width: 820px) {
-          .prop-flow { grid-template-columns: 1fr; }
-          .prop-connector { justify-self: center; padding-block: 8px; }
+          .prop-flow { grid-template-columns: 1fr; gap: 6px; }
+          .prop-connector { justify-self: start; padding-block: 4px; }
+          .prop-visual { min-height: 72px; justify-content: flex-start; }
         }
       `}</style>
     </section>

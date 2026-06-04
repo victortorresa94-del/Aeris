@@ -61,6 +61,13 @@ export function Planes() {
                   })}
                 </div>
 
+                {card.excludes && card.excludes.length > 0 && (
+                  <p className="plan-excludes">
+                    <span className="plan-excludes-label">No incluye</span>
+                    {card.excludes.join(" · ")}
+                  </p>
+                )}
+
                 <p className="plan-foot">{card.footnote}</p>
               </div>
             </Reveal>
@@ -110,6 +117,9 @@ export function Planes() {
           content: ""; position: absolute; left: -16px; top: 0.55em;
           width: 5px; height: 5px; border-radius: 999px; background: var(--green-deep);
         }
+        .plan-excludes { margin-top: 18px; font-size: 0.82rem; color: var(--mute); line-height: 1.4; }
+        .plan-excludes-label { display: inline-flex; align-items: center; font-family: var(--font-mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mute); margin-right: 8px; }
+        .plan-excludes-label::before { content: "✕"; margin-right: 6px; color: var(--mute); }
         .plan-foot { color: var(--mute); margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--hairline); font-size: 0.9rem; line-height: 1.4; }
 
         @media (max-width: 900px) {

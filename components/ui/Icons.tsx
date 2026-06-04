@@ -208,6 +208,13 @@ const IconPeopleSm = (p: IconProps) => (
   </svg>
 );
 
+const IconCalendar = (p: IconProps) => (
+  <svg {...sm(p)} aria-hidden>
+    <rect x="3.5" y="5" width="17" height="15" rx="2" />
+    <path d="M3.5 9h17M8 3v4M16 3v4" />
+  </svg>
+);
+
 export const PLAN_ICONS = {
   social: IconInstagram,
   email: IconMail,
@@ -216,6 +223,7 @@ export const PLAN_ICONS = {
   video: IconPlay,
   web: IconGlobe,
   ads: IconTargetSm,
+  events: IconCalendar,
   strategy: IconChartSm,
   team: IconPeopleSm,
 } as const;

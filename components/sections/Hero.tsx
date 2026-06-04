@@ -103,12 +103,23 @@ export function Hero() {
           position: absolute; inset: 0;
           background: linear-gradient(90deg, var(--cream) 0%, color-mix(in srgb, var(--cream) 40%, transparent) 24%, transparent 55%);
         }
+        /* Mobile: imagen integrada como fondo (no bloque suelto debajo) */
         @media (max-width: 900px) {
-          .hero-grid { min-height: auto; grid-template-rows: auto 56vh; gap: 32px; }
+          .hero-grid {
+            grid-template-columns: 1fr;
+            align-items: start;
+            min-height: 90svh;
+            padding-top: clamp(120px, 18vh, 180px);
+            padding-bottom: clamp(40px, 7vh, 80px);
+          }
           .hero-content { max-width: 100%; }
-          .hero-image { position: relative; width: 100%; height: 56vh; }
+          .hero-image { width: 100%; inset: 0; z-index: 0; }
           .hero-image-inner { inset: 0; }
-          .hero-fade { background: linear-gradient(180deg, transparent 60%, var(--cream) 100%); }
+          .hero-fade {
+            background:
+              linear-gradient(180deg, var(--cream) 14%, color-mix(in srgb, var(--cream) 55%, transparent) 42%, transparent 78%),
+              linear-gradient(0deg, var(--cream) 4%, transparent 30%);
+          }
         }
       `}</style>
     </section>

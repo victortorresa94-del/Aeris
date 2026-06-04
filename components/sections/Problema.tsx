@@ -32,11 +32,11 @@ export function Problema() {
                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
                   />
                 </div>
-                <p className="label-mono" style={{ marginTop: 16 }}>
-                  {door.n}
-                </p>
-                <h3 className="door-name">{door.name}</h3>
-                <p className="door-text">{door.text}</p>
+                <div className="door-info">
+                  <p className="label-mono door-n">{door.n}</p>
+                  <h3 className="door-name">{door.name}</h3>
+                  <p className="door-text">{door.text}</p>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -72,6 +72,7 @@ export function Problema() {
           border: 1px solid var(--hairline);
           background: var(--cream-soft);
         }
+        .door-n { margin-top: 16px; }
         .door-name { font-size: clamp(1.1rem, 1.5vw, 1.4rem); font-weight: 800; letter-spacing: 0.04em; margin-top: 4px; }
         .door-text { color: var(--ink-soft); margin-top: 6px; font-size: 0.95rem; line-height: 1.4; }
         .problema-hook { display: flex; gap: 18px; align-self: center; }
@@ -81,8 +82,13 @@ export function Problema() {
           .problema-body { grid-template-columns: 1fr; gap: clamp(28px, 5vw, 48px); }
           .problema-hook { padding-top: clamp(24px, 4vw, 36px); border-top: 1px solid var(--hairline); }
         }
-        @media (max-width: 520px) {
-          .doors-grid { grid-template-columns: 1fr; gap: 24px; }
+        /* Mobile: puerta pequeña a la izquierda + texto al lado (no foto gigante) */
+        @media (max-width: 560px) {
+          .doors-grid { grid-template-columns: 1fr; gap: 18px; }
+          .door { display: flex; gap: 16px; align-items: center; }
+          .door-photo { width: 96px; flex: none; aspect-ratio: 3 / 4; }
+          .door-info { flex: 1; min-width: 0; }
+          .door-n { margin-top: 0; }
         }
       `}</style>
     </section>
