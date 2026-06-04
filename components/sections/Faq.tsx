@@ -3,10 +3,14 @@
 import { useState } from "react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/ui/Reveal";
+import { Button } from "@/components/ui/Button";
 import { faq } from "@/lib/content";
 
-export function Faq() {
+type PageCta = { label: string; href: string };
+
+export function Faq({ limit, moreCta }: { limit?: number; moreCta?: PageCta } = {}) {
   const [open, setOpen] = useState(0);
+  const items = limit ? faq.items.slice(0, limit) : faq.items;
 
   return (
     <section id="faq" className="section" aria-labelledby="faq-title">
@@ -25,7 +29,7 @@ export function Faq() {
 
         <Reveal className="faq-list">
           <ul>
-            {faq.items.map((item, i) => {
+            {items.map((item, i) => {
               const isOpen = open === i;
               return (
                 <li key={item.q} className="faq-item">
@@ -56,6 +60,13 @@ export function Faq() {
               );
             })}
           </ul>
+          {moreCta && (
+            <div style={{ marginTop: 28 }}>
+              <Button href={moreCta.href} variant="outline" arrow="diagonal">
+                {moreCta.label}
+              </Button>
+            </div>
+          )}
         </Reveal>
       </div>
 

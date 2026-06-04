@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
+import { Header } from "@/components/ui/Header";
+import { Footer } from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aeris.es"),
@@ -52,7 +54,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="skip-link" href="#main">
           Saltar al contenido
         </a>
-        {children}
+        <Header />
+        <main id="main">{children}</main>
+        <Footer />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}

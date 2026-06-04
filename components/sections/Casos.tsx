@@ -1,20 +1,25 @@
 import Image from "next/image";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { Reveal } from "@/components/ui/Reveal";
+import { Button } from "@/components/ui/Button";
 import { casos } from "@/lib/content";
 
-export function Casos() {
+type PageCta = { label: string; href: string };
+
+export function Casos({ pageCta, headless }: { pageCta?: PageCta; headless?: boolean } = {}) {
   return (
-    <section id="casos" className="section" aria-labelledby="casos-title">
-      <hr className="hairline" />
-      <div className="container" style={{ paddingTop: "var(--section-py)" }}>
-        <SectionHead
-          label={casos.label}
-          title={casos.title}
-          titleId="casos-title"
-          micro={casos.micro}
-          titleMaxCh={14}
-        />
+    <section id="casos" className="section" aria-labelledby={headless ? undefined : "casos-title"}>
+      {!headless && <hr className="hairline" />}
+      <div className="container" style={{ paddingTop: headless ? "clamp(8px, 2vw, 24px)" : "var(--section-py)" }}>
+        {!headless && (
+          <SectionHead
+            label={casos.label}
+            title={casos.title}
+            titleId="casos-title"
+            micro={casos.micro}
+            titleMaxCh={14}
+          />
+        )}
 
         <div className="casos-grid">
           {casos.items.map((item, i) => (
@@ -57,6 +62,16 @@ export function Casos() {
           <p className="label-mono" style={{ marginTop: 24, color: "var(--mute)" }}>
             * MÉTRICAS DE EJEMPLO — PENDIENTES DE SUSTITUIR POR DATOS REALES
           </p>
+        )}
+
+        {pageCta && (
+          <Reveal>
+            <div style={{ marginTop: "clamp(28px, 4vw, 40px)" }}>
+              <Button href={pageCta.href} variant="outline" arrow="diagonal">
+                {pageCta.label}
+              </Button>
+            </div>
+          </Reveal>
         )}
       </div>
 

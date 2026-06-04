@@ -1,10 +1,13 @@
 import { Fragment } from "react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Reveal } from "@/components/ui/Reveal";
+import { Button } from "@/components/ui/Button";
 import { NodeDiagram } from "@/components/ui/NodeDiagram";
 import { propuesta } from "@/lib/content";
 
-export function Propuesta() {
+type PageCta = { label: string; href: string };
+
+export function Propuesta({ pageCta }: { pageCta?: PageCta } = {}) {
   return (
     <section id="propuesta" className="section" aria-labelledby="propuesta-title">
       <hr className="hairline" />
@@ -44,6 +47,16 @@ export function Propuesta() {
             </Fragment>
           ))}
         </div>
+
+        {pageCta && (
+          <Reveal>
+            <div style={{ marginTop: "clamp(28px, 4vw, 44px)", display: "flex", justifyContent: "center" }}>
+              <Button href={pageCta.href} variant="outline" arrow="diagonal">
+                {pageCta.label}
+              </Button>
+            </div>
+          </Reveal>
+        )}
       </div>
 
       <style>{`

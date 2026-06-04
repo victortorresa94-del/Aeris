@@ -13,10 +13,11 @@ export const site = {
 };
 
 export const nav = [
-  { label: "Servicios", href: "#que-incluye" },
-  { label: "Planes", href: "#planes" },
-  { label: "Casos", href: "#casos" },
-  { label: "Contacto", href: "#cta" },
+  { label: "Servicios", href: "/servicios" },
+  { label: "Planes", href: "/planes" },
+  { label: "Tecnología", href: "/tecnologia" },
+  { label: "Casos", href: "/casos" },
+  { label: "Nosotros", href: "/nosotros" },
 ];
 
 /* 01 · HERO */
@@ -24,8 +25,8 @@ export const hero = {
   label: "01 · INICIO",
   title: "Tu departamento de marketing completo.",
   lead: ["Operado por expertos.", "Potenciado por IA.", "Por lo que cuesta una sola persona."],
-  ctaPrimary: { label: "Ver planes", href: "#planes" },
-  ctaSecondary: { label: "Hablar con nosotros", href: "#cta" },
+  ctaPrimary: { label: "Ver planes", href: "/planes" },
+  ctaSecondary: { label: "Hablar con nosotros", href: "/contacto" },
   micro: "+10 EMPRESAS CONFÍAN EN AERIS · BARCELONA",
 };
 
@@ -139,6 +140,7 @@ export const planes = {
       price: "1.000 €",
       period: "/mes",
       setup: "Setup desde 600 €",
+      cta: "Empezar con CORE",
       tagline: "Tu presencia, siempre activa.",
       featured: false,
       inherits: undefined as string | undefined,
@@ -159,6 +161,7 @@ export const planes = {
       price: "2.500 €",
       period: "/mes",
       setup: "Setup desde 1.200 €",
+      cta: "Empezar con ACTIVE",
       tagline: "Tu marketing creciendo en todos los frentes.",
       featured: true,
       inherits: "CORE",
@@ -181,6 +184,7 @@ export const planes = {
       price: "6.500 €",
       period: "/mes",
       setup: "Setup desde 2.500 €",
+      cta: "Hablar con el equipo",
       tagline: "Tu departamento completo, a máxima potencia.",
       featured: false,
       inherits: "ACTIVE",
@@ -374,21 +378,22 @@ export const footer = {
   brandMicro: "MARKETING OPERATIONS COMPANY · BARCELONA",
   cols: [
     {
-      title: "Planes",
+      title: "Navegación",
       links: [
-        { label: "CORE", href: "#planes" },
-        { label: "ACTIVE", href: "#planes" },
-        { label: "SCALE", href: "#planes" },
-        { label: "Comparar", href: "#comparativa" },
+        { label: "Servicios", href: "/servicios" },
+        { label: "Planes", href: "/planes" },
+        { label: "Tecnología", href: "/tecnologia" },
+        { label: "Casos", href: "/casos" },
+        { label: "Nosotros", href: "/nosotros" },
       ],
     },
     {
-      title: "Compañía",
+      title: "Planes",
       links: [
-        { label: "Servicios", href: "#que-incluye" },
-        { label: "Casos", href: "#casos" },
-        { label: "Equipo", href: "#equipo" },
-        { label: "Contacto", href: "#cta" },
+        { label: "CORE", href: "/planes" },
+        { label: "ACTIVE", href: "/planes" },
+        { label: "SCALE", href: "/planes" },
+        { label: "Comparar", href: "/planes#comparativa" },
       ],
     },
     {
@@ -396,10 +401,206 @@ export const footer = {
       links: [
         { label: "victor@aeris.es", href: "mailto:victor@aeris.es" },
         { label: "LinkedIn", href: "https://www.linkedin.com/company/aeris" },
-        { label: "Reservar sesión", href: "#cta" },
+        { label: "Reservar sesión", href: "/contacto" },
       ],
     },
   ],
   legalLeft: "© 2026 AERIS · Estrategia + Ejecución + IA",
   legalRight: ["Privacidad", "Términos", "Cookies"],
+};
+
+/* ============================================================
+   v2 — Páginas dedicadas (multipágina)
+   ============================================================ */
+
+/* /planes — contenido extra (hero, matriz, add-ons, letra pequeña) */
+export const planesPage = {
+  label: "PLANES",
+  title: "Una carta. Tres tamaños. Sin sorpresas.",
+  lead: "Precio fijo mensual desde el que partes. El volumen exacto lo ajustamos juntos en el onboarding. Sin permanencias trampa, sin costes ocultos.",
+  matrix: {
+    label: "07 · COMPARATIVA COMPLETA",
+    title: "Qué entra en cada plan.",
+    columns: ["CORE", "ACTIVE", "SCALE"],
+    rows: [
+      { label: "Canales de redes", values: ["Hasta 2", "Hasta 4", "Hasta 5-6"] },
+      { label: "Posts / mes", values: ["8", "16", "24"] },
+      { label: "Stories / mes", values: ["8", "20", "40"] },
+      { label: "Reels / mes", values: ["2", "5", "10"] },
+      { label: "Vídeo de producto", values: ["—", "1 / mes", "2 / mes"] },
+      { label: "Testimonio en vídeo", values: ["—", "—", "1 / mes"] },
+      { label: "Piezas gráficas / mes", values: ["6", "16", "30"] },
+      { label: "Newsletter", values: ["Mensual", "Quincenal", "Semanal"] },
+      { label: "WhatsApp Business", values: ["Plantillas", "Completo + auto.", "Completo + auto."] },
+      { label: "Outbound", values: ["—", "Hasta 6 camp.", "Hasta 12 camp."] },
+      { label: "Community management", values: ["—", "Básico + reseñas", "Completo"] },
+      { label: "Web", values: ["Ajustes (~2h/mes)", "Ampliado + 1 landing/trim", "Bolsa alta + landings"] },
+      { label: "SEO", values: ["—", "On-page + local + 1 art.", "Completo + técnico + link building + 3 art."] },
+      { label: "Paid Ads", values: ["—", "Meta + Google (2 camp.)", "Hasta 4 plataformas (4 camp.)"] },
+      { label: "Eventos / webinars", values: ["—", "Puntuales", "1 / trimestre completo"] },
+      { label: "Estrategia & reporting", values: ["Mensual", "Quincenal", "Semanal + dashboard + C-Level"] },
+      { label: "Equipo", values: ["1 persona + IA", "1 persona + IA", "2 personas + IA"] },
+    ],
+  },
+  addons: {
+    label: "AMPLIACIONES",
+    title: "¿Necesitas más de lo que da tu plan?",
+    intro: "No te cambiamos de plan: lo ampliamos.",
+    items: [
+      { name: "Canal de redes adicional", price: "desde 150 €/mes" },
+      { name: "Pack de 5 reels extra", price: "desde 200 €/mes" },
+      { name: "Vídeo de producto adicional", price: "desde 150 €/ud" },
+      { name: "Landing page adicional", price: "desde 300 €/ud" },
+      { name: "Evento/webinar completo", price: "desde 800 €/ud" },
+      { name: "Campaña de paid en plataforma extra", price: "desde 200 €/mes" },
+    ],
+  },
+  smallprint: [
+    "* Web: ajustes sobre web existente (bolsa de horas). Webs nuevas y ecommerce son proyecto aparte presupuestado.",
+    "Inversión publicitaria aparte.",
+    "Compromiso mínimo 3 meses · pre-aviso 30 días · sin penalizaciones tras el mínimo.",
+    'Todos los volúmenes son "hasta"/"desde", se ajustan en onboarding. Ningún servicio es ilimitado.',
+  ],
+};
+
+/* /servicios */
+export const servicios = {
+  label: "SERVICIOS",
+  title: "Todas las disciplinas del marketing. Una sola dirección.",
+  lead: "No somos especialistas de una cosa. Somos un departamento completo: cada disciplina coordinada bajo una única estrategia.",
+  disciplines: [
+    {
+      n: "01", title: "Redes sociales", icon: "asterisk",
+      oneLine: "Tu marca, presente y consistente donde está tu audiencia.",
+      includes: "Estrategia de contenido, calendario, posts, stories, reels, gestión de hasta 6 canales, community management.",
+      how: "El estratega define línea editorial y voz; la IA acelera producción de copy y creatividades; revisión humana antes de publicar.",
+      plans: "CORE (básico) · ACTIVE · SCALE (completo)",
+    },
+    {
+      n: "02", title: "Email & WhatsApp", icon: "circles",
+      oneLine: "Conversaciones que convierten, no spam.",
+      includes: "Newsletters, automatizaciones, secuencias, WhatsApp Business, plantillas y flujos.",
+      how: "Estrategia de segmentación humana + generación y personalización asistida por IA.",
+      plans: "CORE (newsletter) · ACTIVE/SCALE (completo + automatizaciones)",
+    },
+    {
+      n: "03", title: "Outbound", icon: "outbound",
+      oneLine: "Prospección que abre puertas.",
+      includes: "Secuencias de email por segmento, copy, listas, seguimiento.",
+      how: "Definición de ICP y ángulos por el estratega; producción y personalización a escala con IA.",
+      plans: "ACTIVE (hasta 6 campañas) · SCALE (hasta 12)",
+    },
+    {
+      n: "04", title: "Contenido gráfico", icon: "frame",
+      oneLine: "Piezas que se entienden y se recuerdan.",
+      includes: "Banners, carruseles, infografías, decks, cartelería digital.",
+      how: "Dirección de arte humana + generación de imagen con modelos de última generación; control de marca en cada pieza.",
+      plans: "CORE (6/mes) · ACTIVE (16) · SCALE (30)",
+    },
+    {
+      n: "05", title: "Vídeo", icon: "waves",
+      oneLine: "El formato que más pesa, sin el coste de una productora.",
+      includes: "Reels, vídeos de producto, testimonios.",
+      how: "Guion y dirección humana + generación y edición de vídeo asistida por IA; curaduría humana de cada toma.",
+      plans: "CORE (2 reels) · ACTIVE (5 + 1 producto) · SCALE (10 + 2 producto + testimonio)",
+    },
+    {
+      n: "06", title: "Web & SEO", icon: "pyramid",
+      oneLine: "Que te encuentren y que, cuando lleguen, conviertan.",
+      includes: "Ajustes y soporte web, landing pages, SEO on-page, local, técnico, link building, artículos.",
+      how: "Estrategia SEO y arquitectura humana + producción de contenido y código asistida por IA (incl. landings con Aura).",
+      plans: "CORE (soporte) · ACTIVE (SEO local + 1 artículo) · SCALE (completo + link building + 3 artículos)",
+    },
+    {
+      n: "07", title: "Paid Ads", icon: "square",
+      oneLine: "Inversión que se mide, no que se quema.",
+      includes: "Meta, Google, LinkedIn, TikTok, YouTube; creatividades, audiencias, optimización.",
+      how: "Estrategia y gestión humana de campañas + creatividades a escala con IA. La inversión publicitaria la pones tú.",
+      plans: "ACTIVE (Meta + Google, 2 campañas) · SCALE (hasta 4 plataformas, 4 campañas)",
+    },
+    {
+      n: "08", title: "Eventos & webinars", icon: "rings",
+      oneLine: "Momentos que generan pipeline.",
+      includes: "Landing, convocatoria por email y WhatsApp, creatividades, seguimiento.",
+      how: "Planificación humana + producción de todos los activos con IA.",
+      plans: "ACTIVE (puntuales) · SCALE (1/trimestre completo)",
+    },
+    {
+      n: "09", title: "Estrategia & Reporting", icon: "bars",
+      oneLine: "El cerebro de todo lo demás.",
+      includes: "Diagnóstico, plan, dirección mensual/quincenal/semanal, reporting, dashboard, asesoramiento C-Level.",
+      how: "100% criterio humano, apoyado en datos que la IA agrega y ordena.",
+      plans: "CORE (mensual) · ACTIVE (quincenal) · SCALE (semanal + dashboard + C-Level)",
+    },
+  ],
+  closing: { pre: "No eliges servicios sueltos. Eliges ", accent: "cuánto marketing", post: " quieres." },
+};
+
+/* /tecnologia */
+export const tecnologia = {
+  label: "TECNOLOGÍA",
+  title: "La IA no dirige tu marketing. Nosotros sí.",
+  lead: "Detrás de cada entrega hay una orquesta de modelos de IA trabajando en paralelo. Pero quien decide qué se hace, cómo y por qué, siempre es una persona con criterio.",
+  layersLabel: "EL MODELO EN TRES CAPAS",
+  layers: [
+    { n: "[ 01 ]", kicker: "CRITERIO HUMANO", title: "Lo que no se delega", text: "Estrategia, voz de marca, decisiones, aprobación. El héroe de todo el sistema." },
+    { n: "[ 02 ]", kicker: "CAPA DE ORQUESTACIÓN", title: "Aura", text: "Nuestra herramienta propia: coordina múltiples IAs especializadas y las pone a trabajar juntas sobre tu marca. Desarrollo propio de AERIS y nuestra ventaja competitiva." },
+    { n: "[ 03 ]", kicker: "EJECUCIÓN POR IA", title: "El músculo", text: "Texto, imagen, vídeo, web, email: producción a una velocidad y escala imposibles para un equipo tradicional." },
+  ],
+  benefitsLabel: "POR QUÉ ESTO TE IMPORTA",
+  benefits: [
+    { title: "Velocidad", text: "Lo que una agencia entrega en semanas, nosotros en días." },
+    { title: "Escala", text: "El volumen de un equipo de diez, con la coherencia de uno." },
+    { title: "Criterio", text: "Cada salida pasa por una persona que conoce tu negocio. La IA nunca publica sola." },
+  ],
+  closing: "El futuro del marketing no es más IA. Es mejor criterio dirigiéndola.",
+};
+
+/* /casos — hero (los casos reutilizan `casos`) */
+export const casosPage = {
+  label: "CASOS",
+  title: "Resultados que hablan.",
+  lead: "Estrategia, ejecución e IA. Impacto real en negocios reales.",
+};
+
+/* /nosotros */
+export const nosotros = {
+  label: "NOSOTROS",
+  title: "Detrás de AERIS.",
+  lead: "Dos personas que vivieron por dentro lo que falla en el marketing, y construyeron la alternativa.",
+  historyLabel: "LA HISTORIA",
+  history:
+    "El marketing está roto en sus tres salidas: la agencia que no conoce tu negocio, el equipo interno que no te alcanza, el freelance que solo ejecuta. La IA por fin permite una cuarta salida — criterio humano con la capacidad de ejecución de un equipo entero. AERIS existe para operarla.",
+  manifesto: [
+    "El marketing del futuro no es más actividad. Es más criterio.",
+    "No son más personas ejecutando. Es la persona correcta dirigiendo.",
+    "No es ruido. Es la fuerza invisible que mueve todo.",
+  ],
+};
+
+/* /contacto */
+export const contacto = {
+  label: "CONTACTO",
+  title: "¿Listo para cambiar?",
+  lead: "Sesión de 30 minutos. Sin compromiso. Te decimos honestamente si AERIS encaja con tu empresa o no.",
+  planOptions: ["CORE", "ACTIVE", "SCALE", "No lo sé"],
+  submit: "Reservar sesión",
+  altLabel: "O ESCRÍBENOS DIRECTAMENTE",
+};
+
+/* Bloque CTA reutilizable (cierre de páginas) */
+export const ctaSection = {
+  title: "¿Listo para tener el marketing resuelto?",
+  lead: "Sesión de 30 minutos. Sin compromiso. Te decimos honestamente si AERIS encaja con tu empresa o no.",
+  cta: "Reservar sesión",
+  href: "/contacto",
+  micro: "victor@aeris.es · BARCELONA",
+};
+
+/* Teaser de tecnología en la home */
+export const techTeaser = {
+  label: "09 · TECNOLOGÍA",
+  title: "Detrás de cada entrega, una orquesta de IA dirigida por personas.",
+  lead: "Aura, nuestra capa de orquestación propia, coordina múltiples IAs especializadas. Pero quien decide siempre es una persona con criterio.",
+  cta: { label: "Cómo lo hacemos", href: "/tecnologia" },
 };

@@ -1,9 +1,12 @@
 import { SectionHead } from "@/components/ui/SectionHead";
 import { Reveal } from "@/components/ui/Reveal";
+import { Button } from "@/components/ui/Button";
 import { BENTO_ICONS } from "@/components/ui/Icons";
 import { queIncluye } from "@/lib/content";
 
-export function QueIncluye() {
+type PageCta = { label: string; href: string };
+
+export function QueIncluye({ pageCta }: { pageCta?: PageCta } = {}) {
   return (
     <section id="que-incluye" className="section" aria-labelledby="que-incluye-title">
       <hr className="hairline" />
@@ -42,6 +45,16 @@ export function QueIncluye() {
             {queIncluye.hook.post}
           </p>
         </Reveal>
+
+        {pageCta && (
+          <Reveal>
+            <div style={{ marginTop: "clamp(28px, 4vw, 40px)" }}>
+              <Button href={pageCta.href} variant="outline" arrow="diagonal">
+                {pageCta.label}
+              </Button>
+            </div>
+          </Reveal>
+        )}
       </div>
 
       <style>{`

@@ -1,20 +1,25 @@
 import { SectionHead } from "@/components/ui/SectionHead";
 import { Reveal } from "@/components/ui/Reveal";
+import { Button } from "@/components/ui/Button";
 import { PLAN_ICONS } from "@/components/ui/Icons";
 import { planes } from "@/lib/content";
 
-export function Planes() {
+type PageCta = { label: string; href: string };
+
+export function Planes({ pageCta, headless }: { pageCta?: PageCta; headless?: boolean } = {}) {
   return (
-    <section id="planes" className="section" aria-labelledby="planes-title">
-      <hr className="hairline" />
-      <div className="container" style={{ paddingTop: "var(--section-py)" }}>
-        <SectionHead
-          label={planes.label}
-          title={planes.title}
-          titleId="planes-title"
-          micro={planes.micro}
-          titleMaxCh={16}
-        />
+    <section id="planes" className="section" aria-labelledby={headless ? undefined : "planes-title"}>
+      {!headless && <hr className="hairline" />}
+      <div className="container" style={{ paddingTop: headless ? "clamp(8px, 2vw, 24px)" : "var(--section-py)" }}>
+        {!headless && (
+          <SectionHead
+            label={planes.label}
+            title={planes.title}
+            titleId="planes-title"
+            micro={planes.micro}
+            titleMaxCh={16}
+          />
+        )}
 
         <div className="plans-grid">
           {planes.cards.map((card, i) => (
@@ -74,6 +79,16 @@ export function Planes() {
             </Reveal>
           ))}
         </div>
+
+        {pageCta && (
+          <Reveal>
+            <div style={{ marginTop: "clamp(32px, 4vw, 48px)", display: "flex", justifyContent: "center" }}>
+              <Button href={pageCta.href} variant="outline" arrow="diagonal">
+                {pageCta.label}
+              </Button>
+            </div>
+          </Reveal>
+        )}
 
         <hr className="hairline" style={{ marginTop: "clamp(40px, 5vw, 64px)" }} />
         <p className="label-mono" style={{ marginTop: 20 }}>

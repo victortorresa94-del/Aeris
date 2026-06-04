@@ -11,24 +11,28 @@ function initials(name: string) {
     .join("");
 }
 
-export function Equipo() {
+export function Equipo({ headless }: { headless?: boolean } = {}) {
   return (
-    <section id="equipo" className="section" aria-labelledby="equipo-title">
-      <hr className="hairline" />
-      <div className="container" style={{ paddingTop: "var(--section-py)" }}>
-        <Reveal>
-          <SectionLabel>{equipo.label}</SectionLabel>
-        </Reveal>
-        <Reveal>
-          <h2 id="equipo-title" className="t-h2">
-            {equipo.title}
-          </h2>
-        </Reveal>
-        <Reveal delay={100}>
-          <p className="lead measure" style={{ marginTop: "clamp(16px, 2vw, 24px)" }}>
-            {equipo.intro}
-          </p>
-        </Reveal>
+    <section id="equipo" className="section" aria-labelledby={headless ? undefined : "equipo-title"}>
+      {!headless && <hr className="hairline" />}
+      <div className="container" style={{ paddingTop: headless ? "clamp(8px, 2vw, 24px)" : "var(--section-py)" }}>
+        {!headless && (
+          <>
+            <Reveal>
+              <SectionLabel>{equipo.label}</SectionLabel>
+            </Reveal>
+            <Reveal>
+              <h2 id="equipo-title" className="t-h2">
+                {equipo.title}
+              </h2>
+            </Reveal>
+            <Reveal delay={100}>
+              <p className="lead measure" style={{ marginTop: "clamp(16px, 2vw, 24px)" }}>
+                {equipo.intro}
+              </p>
+            </Reveal>
+          </>
+        )}
 
         <div className="team-grid">
           {equipo.members.map((m, i) => (

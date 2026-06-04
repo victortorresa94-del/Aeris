@@ -7,6 +7,7 @@
   /* Base */
   --cream: #f4f2ec;
   --cream-soft: #fbfaf6;
+  --paper: #ffffff;
   --ink: #0e0e0e;
   --ink-soft: #3a3a38;
   --mute: #6b6b66;
@@ -14,6 +15,7 @@
 
   /* Accent — sage green (single accent of the system) */
   --green-surface: #d7ebdd; /* DECORATIVE backgrounds only — never text */
+  --green-surf-2: #eaf5ee; /* even softer green block bg */
   --green: #4fa877; /* lines + large icons */
   --green-deep: #2e7d55; /* text-accent, links, focus, active — AA on cream */
 
