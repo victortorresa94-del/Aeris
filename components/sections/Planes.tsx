@@ -109,7 +109,7 @@ export function Planes({ pageCta, headless }: { pageCta?: PageCta; headless?: bo
           grid-template-columns: repeat(3, 1fr);
           gap: clamp(16px, 2vw, 24px);
           margin-top: clamp(40px, 6vw, 64px);
-          align-items: start;
+          align-items: stretch;
         }
         .plan { display: flex; flex-direction: column; overflow: hidden; }
         .plan-featured { border-color: var(--green); }
