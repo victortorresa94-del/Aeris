@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AerisMark } from "@/components/ui/AerisMark";
 import { nav, site } from "@/lib/content";
 
 export function Header() {
@@ -60,8 +61,9 @@ export function Header() {
         }}
       >
         <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
-          <Link href="/" aria-label={`${site.name} — inicio`} style={{ fontWeight: 800, letterSpacing: "0.18em", fontSize: "1.05rem", zIndex: 2 }}>
-            {site.name}
+          <Link href="/" aria-label={`${site.name} — inicio`} style={{ display: "inline-flex", alignItems: "center", gap: 10, zIndex: 2 }}>
+            <AerisMark size={26} />
+            <span style={{ fontWeight: 800, letterSpacing: "0.18em", fontSize: "1.05rem" }}>{site.name}</span>
           </Link>
 
           <nav aria-label="Principal" style={{ display: "flex", alignItems: "center", gap: "clamp(16px, 3vw, 40px)" }}>

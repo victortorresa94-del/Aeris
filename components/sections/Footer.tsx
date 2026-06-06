@@ -1,3 +1,4 @@
+import { AerisMark } from "@/components/ui/AerisMark";
 import { footer, site } from "@/lib/content";
 
 export function Footer() {
@@ -7,7 +8,8 @@ export function Footer() {
       <div className="container" style={{ paddingBlock: "clamp(48px, 7vw, 96px)" }}>
         <div className="footer-grid">
           <div className="footer-brand">
-            <p id="footer-brand" style={{ fontWeight: 800, letterSpacing: "0.18em", fontSize: "1.1rem" }}>
+            <p id="footer-brand" style={{ display: "flex", alignItems: "center", gap: 10, fontWeight: 800, letterSpacing: "0.18em", fontSize: "1.1rem" }}>
+              <AerisMark size={24} />
               {site.name}
             </p>
             <p style={{ color: "var(--ink-soft)", marginTop: 12, maxWidth: "26ch" }}>{footer.brandLine}</p>
