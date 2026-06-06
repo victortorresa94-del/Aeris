@@ -38,6 +38,11 @@ export function Planes({ pageCta, headless }: { pageCta?: PageCta; headless?: bo
                   </span>
                 </p>
                 {card.setup && <p className="plan-setup">+ {card.setup} · pago único</p>}
+                {card.team && (
+                  <p className="plan-team">
+                    <span aria-hidden>◍</span> {card.team}
+                  </p>
+                )}
 
                 {card.inherits && (
                   <p className="plan-inherits">
@@ -80,6 +85,8 @@ export function Planes({ pageCta, headless }: { pageCta?: PageCta; headless?: bo
           ))}
         </div>
 
+        <p className="plan-note">{planes.note}</p>
+
         {pageCta && (
           <Reveal>
             <div style={{ marginTop: "clamp(32px, 4vw, 48px)", display: "flex", justifyContent: "center" }}>
@@ -117,6 +124,8 @@ export function Planes({ pageCta, headless }: { pageCta?: PageCta; headless?: bo
         .plan-price-amount { font-size: clamp(1.75rem, 2.6vw, 2.4rem); font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; line-height: 1.05; }
         .plan-period { font-family: var(--font-mono); font-size: var(--text-label); color: var(--mute); font-weight: 400; margin-left: 6px; }
         .plan-setup { margin-top: 8px; font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.04em; color: var(--green-deep); }
+        .plan-team { margin-top: 8px; display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: var(--text-micro); letter-spacing: 0.06em; text-transform: uppercase; color: var(--mute); padding-top: 8px; border-top: 1px dashed var(--hairline); }
+        .plan-team span { color: var(--green); }
 
         .plan-inherits { margin-top: 22px; font-size: 0.85rem; color: var(--ink-soft); padding-bottom: 16px; border-bottom: 1px solid var(--hairline); }
         .plan-inherits strong { font-weight: 700; color: var(--ink); }
@@ -138,6 +147,7 @@ export function Planes({ pageCta, headless }: { pageCta?: PageCta; headless?: bo
         .plan-excludes-label { display: inline-flex; align-items: center; font-family: var(--font-mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mute); margin-right: 8px; }
         .plan-excludes-label::before { content: "✕"; margin-right: 6px; color: var(--mute); }
         .plan-foot { color: var(--mute); margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--hairline); font-size: 0.9rem; line-height: 1.4; }
+        .plan-note { margin-top: clamp(20px, 3vw, 28px); font-family: var(--font-mono); font-size: var(--text-micro); color: var(--mute); max-width: 80ch; line-height: 1.5; }
 
         @media (max-width: 900px) {
           .plans-grid { grid-template-columns: 1fr; gap: 16px; max-width: 540px; margin-inline: auto; }

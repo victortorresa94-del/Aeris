@@ -165,12 +165,12 @@ const IconMail = (p: IconProps) => (
     <path d="M4 7l8 6 8-6" />
   </svg>
 );
-const IconSend = (p: IconProps) => (
+export const IconSend = (p: IconProps) => (
   <svg {...sm(p)} aria-hidden>
     <path d="M21 3L10 14M21 3l-7 18-4-7-7-4 18-7z" />
   </svg>
 );
-const IconImage = (p: IconProps) => (
+export const IconImage = (p: IconProps) => (
   <svg {...sm(p)} aria-hidden>
     <rect x="3" y="4" width="18" height="16" rx="2" />
     <circle cx="9" cy="9.5" r="1.6" />
@@ -200,7 +200,7 @@ const IconChartSm = (p: IconProps) => (
     <path d="M4 20V4M4 20h16M8 16l3-4 3 2 4-6" />
   </svg>
 );
-const IconPeopleSm = (p: IconProps) => (
+export const IconPeopleSm = (p: IconProps) => (
   <svg {...sm(p)} aria-hidden>
     <circle cx="9" cy="8" r="3" />
     <circle cx="17" cy="9" r="2.4" />
@@ -216,16 +216,13 @@ const IconCalendar = (p: IconProps) => (
 );
 
 export const PLAN_ICONS = {
-  social: IconInstagram,
-  email: IconMail,
-  outbound: IconSend,
-  content: IconImage,
+  estrategia: IconChartSm,
+  contenido: IconInstagram,
   video: IconPlay,
+  comms: IconMail,
   web: IconGlobe,
   ads: IconTargetSm,
-  events: IconCalendar,
-  strategy: IconChartSm,
-  team: IconPeopleSm,
+  eventos: IconCalendar,
 } as const;
 
 /* ---- Check / cross for comparison table ---- */
